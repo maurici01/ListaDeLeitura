@@ -57,12 +57,11 @@ class _ListaLivroPageState extends State<ListaLivroPage> {
                         ),
                         subtitle: Padding(
                           padding: const EdgeInsets.only(left: 58.0),
-                          child: Expanded(
-                            child: Text(
-                              'Uma descrição qualquer só para testar se está funcional',
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(color: Colors.black),
-                            ),
+                          child: Text(
+                            'Uma descrição qualquer só para testar se está funcional',
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            style: TextStyle(color: Colors.black),
                           ),
                         ),
                         visualDensity: VisualDensity.compact,
