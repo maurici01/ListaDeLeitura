@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:listadeleitura/models/livro_model.dart';
 import 'package:listadeleitura/widgets/linha_horizontal.dart';
+import 'package:listadeleitura/widgets/lista_livro.dart';
 
 class ListaLivroPage extends StatefulWidget {
   const ListaLivroPage({super.key});
@@ -14,74 +16,46 @@ class _ListaLivroPageState extends State<ListaLivroPage> {
     return Scaffold(
       backgroundColor: Color(0xFFF1EF88),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Stack(
-            children: [
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 58),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Lista de Livros',
-                          style: TextStyle(
-                            color: Color(0xFF498C9A),
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        FloatingActionButton(
-                          onPressed: () {},
-                          child: Icon(Icons.add),
-                          mini: true,
-                        ),
-                      ],
-                    ),
-                  ),
-                  LinhaHorizontal(),
-                  ListView.separated(
-                    shrinkWrap: true,
-                    itemBuilder: (context, i) {
-                      return ListTile(
-                        title: Padding(
-                          padding: const EdgeInsets.only(left: 58.0),
-                          child: Text(
-                            'Código limpo',
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 38),
+              child: VerticalDivider(color: Colors.red[200], thickness: 3),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Lista de Livros',
                             style: TextStyle(
-                              fontSize: 26,
+                              color: Color(0xFF498C9A),
+                              fontSize: 28,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ),
-                        subtitle: Padding(
-                          padding: const EdgeInsets.only(left: 58.0),
-                          child: Text(
-                            'Uma descrição qualquer só para testar se está funcional',
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            style: TextStyle(color: Colors.black),
+                          FloatingActionButton(
+                            onPressed: () {},
+                            child: Icon(Icons.add),
+                            mini: true,
                           ),
-                        ),
-                        visualDensity: VisualDensity.compact,
-                        contentPadding: EdgeInsets.all(0),
-                      );
-                    },
-                    separatorBuilder: (context, i) {
-                      return LinhaHorizontal();
-                    },
-                    itemCount: 35,
-                  ),
-                  LinhaHorizontal(),
-                ],
+                        ],
+                      ),
+                    ),
+                    LinhaHorizontal(),
+                    ListaLivro(listaLivros: listaLivrosMock),
+                    LinhaHorizontal(),
+                  ],
+                ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 38.0),
-                child: VerticalDivider(color: Colors.red[200], thickness: 3),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
