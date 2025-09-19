@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:listadeleitura/pages/formulario_livro_page.dart';
 
 import 'package:listadeleitura/pages/lista_livros_page.dart'
     show ListaLivroPage;
@@ -21,7 +22,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         textTheme: GoogleFonts.kalamTextTheme(Theme.of(context).textTheme),
       ),
-      home: ListaLivroPage(),
+
+      routes: {
+        // rotas
+        '/': (context) => ListaLivroPage(), //pagina inicial
+        '/form': (context) => FormularioLivroPage(), //pagina de formulario
+      },
     );
   }
 }
