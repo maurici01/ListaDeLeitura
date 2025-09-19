@@ -47,8 +47,8 @@ class _ListaLivroPageState extends State<ListaLivroPage> {
                               // quando pressiona no botão navega para outra pagina
                               Navigator.of(context).pushNamed('/form');
                             },
-                            child: Icon(Icons.add),
                             mini: true,
+                            child: Icon(Icons.add),
                           ),
                         ],
                       ),
