@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:listadeleitura/models/livro_model.dart';
+import 'package:listadeleitura/pages/formulario_livro_page.dart';
 import 'package:listadeleitura/widgets/linha_horizontal.dart';
 import 'package:listadeleitura/widgets/lista_livro.dart';
 
@@ -41,7 +42,15 @@ class _ListaLivroPageState extends State<ListaLivroPage> {
                             ),
                           ),
                           FloatingActionButton(
-                            onPressed: () {},
+                            //botão
+                            onPressed: () {
+                              // quando pressiona no botão navega para outra pagina
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => FormularioLivroPage(),
+                                ),
+                              );
+                            },
                             child: Icon(Icons.add),
                             mini: true,
                           ),
